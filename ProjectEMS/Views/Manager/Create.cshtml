@@ -1,0 +1,50 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@model ProjectEMS.Models.ProjectRequestModel
+
+@{
+    ViewData["Title"] = "Create Project";
+}
+
+<h1>Create</h1>
+
+<h4>Project</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Pname" class="control-label"></label>
+                <input asp-for="Pname" class="form-control" />
+                <span asp-validation-for="Pname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pdetails" class="control-label"></label>
+                <input asp-for="Pdetails" class="form-control" />
+                <span asp-validation-for="Pdetails" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PStartDate" class="control-label"></label>
+                <input asp-for="PStartDate" class="form-control" />
+                <span asp-validation-for="PStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PEndDate" class="control-label"></label>
+                <input asp-for="PEndDate" class="form-control" />
+                <span asp-validation-for="PEndDate" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ProjectList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

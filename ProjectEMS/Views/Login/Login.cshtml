@@ -1,0 +1,86 @@
+﻿@model ProjectEMS.Models.LoginRequestModel;
+@using Project.Common.Enums;
+
+@{
+    ViewBag.Title = "LogIn";
+}
+
+
+
+<fieldset>
+    <legend>
+        Log In
+    </legend>
+    @using (Html.BeginForm("LogIn", "Login", FormMethod.Post))
+    {
+<table>
+    
+    @*<div class="form-group">
+        <label asp-for="Role" class="control-label"></label>
+        <select asp-for="Role" class="form-control" asp-items="Html.GetEnumSelectList<RoleEnum>()">
+            <option value="">Choose your Role</option>
+        </select>
+
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>*@
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.Email)
+        </td>
+        <td>
+            @Html.TextBoxFor(model => model.Email)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.Password)
+        </td>
+        <td>
+            @Html.PasswordFor(model => model.Password)
+        </td>
+                <td>
+                    <input type="checkbox" onclick="togglePassword()">Show Password
+                </td>
+
+    </tr>
+    <tr>
+        <td>
+            @Html.ValidationMessageFor(model => model.Password, null, new { @class = "text text-danger" })
+        </td>
+    </tr>
+    <tr>
+
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <input type="submit" value="LogIn" asp-action="LogIn" />
+                    </td>
+                    <td>
+                        <input type="reset" value="Reset" />
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+</table>
+    }
+   
+</fieldset>
+
+<script>
+    function togglePassword() {
+        var passwordField = document.getElementById("Password");
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+        } else {
+            passwordField.type = "password";
+        }
+    }
+</script>

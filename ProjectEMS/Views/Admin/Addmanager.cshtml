@@ -1,0 +1,31 @@
+﻿@model ProjectEMS.Models.Emp_ManagerRequestModel
+@{
+    ViewData["Title"] = "Add Manager";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Addmanager">
+            <div class="form-group">
+                <label asp-for="M_id" class="control-label"></label>
+               @* <input asp-for="M_id" class="form-control" />*@
+                @*<span asp-validation-for="M_id" class="text-danger"></span>*@
+                <select asp-for="M_id" class="form-control" asp-items="(IEnumerable<SelectListItem>)ViewBag.listmanager">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="E_id" class="control-label"></label>
+                @*<input asp-for="E_id" class="form-control" />
+        <span asp-validation-for="E_id" class="text-danger"></span>*@
+                <select asp-for="E_id" class="form-control" asp-items="(IEnumerable<SelectListItem>)ViewBag.listemployee">
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="EmployeesList">Back to List</a>
+</div>

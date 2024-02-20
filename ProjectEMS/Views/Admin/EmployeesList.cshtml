@@ -1,0 +1,116 @@
+﻿@model IEnumerable<ProjectEMS.Models.EmployeeResponseModel>
+
+@{
+    ViewData["Title"] = "EmployeesList";
+}
+
+<h1>EmployeesList for admin</h1>
+
+
+<p>
+    <a asp-action="Create">Add New Employee</a>
+</p>
+<br />
+<p>
+    <a asp-action="addmanager" asp-route-id="">Add-Manager</a>
+</p>
+<p>
+    <a asp-action="ManagerList" asp-route-id="">Manager Lists</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.E_id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JoiningDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.E_id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MobileNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JoiningDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @* @Html.ActionLink("Add-Manager", "addmanager")*@
+                    <a asp-action="Edit" asp-route-id="@item.E_id">Edit</a> <br />
+                    @* @Html.ActionLink("Edit", "Edit",new {Eid=item.E_id,item.Fname,item.Lname,item.Email,item.City,item.Department,item.Role,item.MobileNo,item.JoiningDate,item.Status,item.Password,item.ConfimPassword }) |*@
+                    @*             <a asp-action="addmanager" asp-route-id="@item.E_id">Add-Manager</a>*@
+                    <a asp-action="Delete" asp-route-id="@item.E_id">Delete</a>
+                    @* @Html.ActionLink("Delete", "Delete", new { id = item.E_id }, new { onclick = "return confirm ('Are you sure!')" })*@
+
+
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

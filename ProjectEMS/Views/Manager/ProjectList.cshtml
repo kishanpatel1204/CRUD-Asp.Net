@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ProjectEMS.Models.ProjectResponseModel>
+
+@{
+    ViewData["Title"] = "Project Details";
+}<h1>Details</h1>
+<p>
+    <a asp-action="create">Add New project</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.P_id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Pname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pdetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PEndDate)
+            </th>
+            
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.P_id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pdetails)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEndDate)
+                </td>
+                
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.P_id">Edit</a> <br />
+                    <a asp-action="EmployeesList">Back to Employee List</a><br />
+                   
+                    <a asp-action="DeleteProject" asp-route-id="@item.P_id">Delete</a>
+                    @* @Html.ActionLink("Delete", "Delete", new { id = item.E_id }, new { onclick = "return confirm ('Are you sure!')" })*@
+
+
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
