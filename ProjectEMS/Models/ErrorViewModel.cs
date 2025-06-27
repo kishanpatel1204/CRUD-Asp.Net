@@ -8,6 +8,6 @@ namespace ProjectEMS.Models
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
-    echo "// Test comment for webhook trigger" >> testfile.cs
+    echo "// test ai comment" >> test.cs
 
 }
