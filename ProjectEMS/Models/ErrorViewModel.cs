@@ -8,4 +8,5 @@ namespace ProjectEMS.Models
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
+    echo "// test ai comment" >> test.cs
 }
